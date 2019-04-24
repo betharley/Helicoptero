@@ -1,151 +1,29 @@
-<!DOCTYPE html>
-<html lang="utf-8" >
-	<head>
-		<title> Game Helicoptero </title>
-		<style type="text/css">
-			*{
-				position: absolute;
-				padding: 0;
-				margin: 0 auto;
-			}
-
-		</style>
-	</head>
-	<body>
-		<canvas></canvas>
-	</body>
-
-<script type="text/javascript" src="js/escala.js" ></script>
-<script type="text/javascript" src="js/vida.js" ></script>
-<script type="text/javascript" src="js/gameover.js" ></script>
-<script type="text/javascript" src="js/cenario.js" ></script>
-<script type="text/javascript" src="js/objetos/explosao.js" ></script>
-<script type="text/javascript" src="js/colisao.js" ></script>
-<script type="text/javascript" src="js/objetos/missel.js" ></script>
-<script type="text/javascript" src="js/objetos/enemy.js" ></script>
-<script type="text/javascript" src="js/objetos/helicoptero.js" ></script>
-<script type="text/javascript" src="js/fase01.js" ></script>
-<script type="text/javascript" src="js/game.js" ></script>
-
-<script type="text/javascript">
-	//CANVAS E CONTEXTO
+<html>
+<head>
+	<title>MEU PROGRAMA</title>
+</head>
+<body>
+	<canvas width="5000"  height="5000" ></canvas>
+<SCRIPT>
 	var canvas = document.querySelector("canvas");
 	var contexto = canvas.getContext("2d");
-	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight;
 
-	//CONTADOR DE IMAGENS
-	let contador = 0;
+	contexto.fillStyle = "red";
+	contexto.fillRect(0, 0, 100, 100);
 
-	var teclado = {
-		left: false,
-		right: false,
-		up: false,
-		down: false,
-		disparar: false,
-		enter: false,
-	};
+	contexto.fillStyle = "yellow";
+	contexto.fillRect(0, 100, 500, 500);
 
-	//IMAGEM HELICOPTERO
-	var imgHelicoptero = new Image();
-	imgHelicoptero.src = "img/helicoptero.png";
-	imgHelicoptero.onload = carregando;
-
-	//IMAGEM MISSEL
-	var imgMissel = new Image();
-	imgMissel.src = "img/missel.png";
-	imgMissel.onload = carregando;
-
-	//IMAGEM ENEMY
-	var imgEnemy1 = new Image();
-	imgEnemy1.src = "img/enemy2.png";
-	imgEnemy1.onload = carregando;
+	contexto.beginPath();
+	contexto.fillStyle = "blue";
+	contexto.arc(100, 800, 100, 0, Math.PI * 2);
+	contexto.fill();
+	contexto.closePath();
 	
-	//IMAGEM EXPLOSÃO
-	var imgExplosao = new Image();
-	imgExplosao.src = "img/explosao.png";
-	imgExplosao.onload = carregando;
+	contexto.fillStyle = "green";
+	contexto.fillRect(200, 1000, 500, 100);
 
-	//IMAGEM CENARIO
-	var imgCenario1 = new Image();
-	imgCenario1.src = "img/cenario1.png";
-	imgCenario1.onload = carregando;
+</SCRIPT>
 
-	//console.log("INDEX: ", imgEnemy1 );
-
-	//CLASSES PRINCIPAIS
-	const escala = new Escala(contexto);
-	const game = new Game(escala, teclado);
-
-
-	function carregando(){
-		contador++;
-		if(contador == 5){
-			game.ligar();
-		}
-	}
-	
-
-	//setInterval( if(game.ligado){}, 1000 )
-	//let contadores = 0;
-	//window.setInterval(console.log("timer", contadores++), 100);
-	//setInterval(function(){ alert("Hello"); }, 3000);
-
-	//setInterval( function(){ 
-	//	if( game.ligado ){
-						
-	//	}
-	//}, 1000);
-
-
-	window.addEventListener("keydown",function(evento){
-		let tecla = evento.keyCode;
-
-		if(tecla == 37){
-			teclado.left = true;
-		}else
-		if(tecla == 38){
-			teclado.up = true;
-		}else
-		if(tecla == 39){
-			teclado.right = true;
-		}else
-		if(tecla == 40){
-			teclado.down = true;
-		}else
-		if(tecla == 32){
-			teclado.disparar = true;
-		}else
-		if(tecla == 13){
-			teclado.enter = true;
-		}
-	},false);
-
-	window.addEventListener("keyup",function(evento){
-		let tecla = evento.keyCode;
-
-		if(tecla == 37){
-			teclado.left = false;
-		}else
-		if(tecla == 38){
-			teclado.up = false;
-		}else
-		if(tecla == 39){
-			teclado.right = false;
-		}else
-		if(tecla == 40){
-			teclado.down = false;
-		}else
-		if(tecla == 32){
-			teclado.disparar = false;
-		}else
-		if(tecla == 13){
-			teclado.enter = false;
-		}
-
-	},false);
-
-</script>
-
+</body>
 </html>
-
