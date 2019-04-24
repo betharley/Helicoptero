@@ -1,2 +1,0 @@
-# Helicoptero
-Game de Helicoptero
